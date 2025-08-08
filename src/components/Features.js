@@ -16,8 +16,7 @@ const Features = () => {
           {[
             {
               name: "Bamboo Kitchen Set",
-              description:
-                "Complete eco-friendly kitchen essentials made from sustainable bamboo",
+              description: "Sustainable bamboo kitchen essentials",
               icon: bambooKitchen,
             },
             {
@@ -43,8 +42,10 @@ const Features = () => {
                 <img src={product.icon} />
               </div>
               <div className="product-info">
-                <h3 className="product-title">{product.name}</h3>
-                <p className="product-description">{product.description}</p>
+                <div>
+                  <h3 className="product-title">{product.name}</h3>
+                  <p className="product-description">{product.description}</p>
+                </div>
                 <button className="btn btn-primary">Shop Now</button>
               </div>
             </div>

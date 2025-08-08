@@ -1,11 +1,13 @@
-/* Header Styles */
+/*-----------------------------------
+  GLOBAL HEADER STYLES
+-----------------------------------*/
 .header {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   padding: 1rem 0;
   position: sticky;
-  width: 100%;
   top: 0;
+  width: 100%;
   z-index: 1000;
   transition: all 0.3s ease;
   border-bottom: 1px solid rgba(34, 139, 34, 0.1);
@@ -32,9 +34,8 @@
 .nav-menu {
   display: flex;
   list-style: none;
-  gap: 2rem;
+  gap: 3rem;
   align-items: center;
-  font-size: var(--font-sm);
 }
 
 .nav-link {
@@ -42,13 +43,15 @@
   color: var(--text);
   font-weight: 500;
   transition: color 0.3s ease;
+  font-size: var(--font-md);
 }
 
 .nav-link:hover {
   color: var(--primary-color);
 }
 
-.menu-toggle {
+.menu-toggle,
+.mobile-close {
   display: none;
   background: none;
   border: none;
@@ -56,6 +59,9 @@
   color: var(--primary-color);
 }
 
+/*-----------------------------------
+  MOBILE MENU
+-----------------------------------*/
 .mobile-menu {
   display: none;
   position: fixed;
@@ -76,25 +82,16 @@
   display: flex;
 }
 
-.mobile-close {
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: var(--primary-color);
-}
-
-/* Hero Section */
+/*-----------------------------------
+  HERO SECTION
+-----------------------------------*/
 .hero {
   background: linear-gradient(
     135deg,
-    rgba(34, 139, 34, 0.1) 0%,
-    rgba(245, 245, 220, 0.3) 100%
+    rgba(34, 139, 34, 0.1),
+    rgba(245, 245, 220, 0.3)
   );
   padding: 8rem 2rem 4rem;
-
   display: flex;
   align-items: center;
   position: relative;
@@ -108,20 +105,9 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="leaf" patternUnits="userSpaceOnUse" width="20" height="20"><path d="M10,2 Q15,10 10,18 Q5,10 10,2" fill="rgba(34,139,34,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23leaf)"/></svg>')
-    repeat;
+  background: url("data:image/svg+xml,<svg ...") repeat;
   opacity: 0.5;
   animation: float 20s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-20px) rotate(1deg);
-  }
 }
 
 .hero-container {
@@ -151,6 +137,32 @@
   animation: slideInLeft 1s ease-out 0.2s both;
 }
 
+.hero-image {
+  position: relative;
+  animation: slideInRight 1s ease-out 0.4s both;
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 50rem;
+  transition: transform 0.3s ease;
+}
+
+.hero-image img:hover {
+  transform: scale(1.05);
+}
+
+/* Hero animations */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+  50% {
+    transform: translateY(-20px) rotate(1deg);
+  }
+}
+
 @keyframes slideInLeft {
   from {
     opacity: 0;
@@ -160,22 +172,6 @@
     opacity: 1;
     transform: translateX(0);
   }
-}
-
-.hero-image {
-  position: relative;
-  animation: slideInRight 1s ease-out 0.4s both;
-}
-
-.hero-image img {
-  width: 100%;
-
-  transition: transform 0.3s ease;
-  max-width: 50rem;
-}
-
-.hero-image img:hover {
-  transform: scale(1.05);
 }
 
 @keyframes slideInRight {
@@ -189,7 +185,9 @@
   }
 }
 
-/* Section Styles */
+/*-----------------------------------
+  GLOBAL SECTION STYLES
+-----------------------------------*/
 .section {
   padding: 7rem 1rem;
 }
@@ -212,12 +210,13 @@
   font-size: var(--font-lg);
   color: var(--text);
   margin-bottom: 3rem;
-  max-width: 60re;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 60rem;
+  margin-inline: auto;
 }
 
-/* Products Section */
+/*-----------------------------------
+  PRODUCTS SECTION
+-----------------------------------*/
 .products-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -226,7 +225,7 @@
 }
 
 .product-card {
-  background: white;
+  background: #fff;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -249,6 +248,7 @@
   position: relative;
   overflow: hidden;
 }
+
 .product-image img {
   width: 100%;
   height: 100%;
@@ -258,10 +258,7 @@
 .product-image::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background: linear-gradient(
     45deg,
     transparent 30%,
@@ -289,16 +286,18 @@
 
 .product-description {
   color: var(--text);
-  margin-bottom: 1rem;
   font-size: var(--font-md);
+  margin-bottom: 2rem;
 }
 
-/* Features Section */
+/*-----------------------------------
+  FEATURES SECTION
+-----------------------------------*/
 .features {
   background: linear-gradient(
     135deg,
-    rgba(245, 245, 220, 0.3) 0%,
-    rgba(34, 139, 34, 0.05) 100%
+    rgba(245, 245, 220, 0.3),
+    rgba(34, 139, 34, 0.05)
   );
 }
 
@@ -353,10 +352,12 @@
   color: white;
   transition: transform 0.3s ease;
 }
+
 .feature-icon svg {
   width: 3rem;
   height: 3rem;
 }
+
 .feature-card:hover .feature-icon {
   transform: scale(1.1) rotate(5deg);
 }
@@ -373,7 +374,9 @@
   font-size: var(--font-md);
 }
 
-/* Testimonials Section */
+/*-----------------------------------
+  TESTIMONIALS
+-----------------------------------*/
 .testimonials-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -386,8 +389,8 @@
   padding: 2rem;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  position: relative;
   transition: all 0.3s ease;
+  position: relative;
 }
 
 .testimonial-card::before {
@@ -409,9 +412,9 @@
 .testimonial-text {
   color: var(--text);
   font-style: italic;
+  font-size: var(--font-md);
   margin-bottom: 1.5rem;
   line-height: 1.7;
-  font-size: var(--font-md);
 }
 
 .testimonial-author {
@@ -436,8 +439,8 @@
 .author-info h4 {
   color: var(--primary-color);
   font-weight: 600;
-  margin-bottom: 0.25rem;
   font-size: var(--font-md);
+  margin-bottom: 0.25rem;
 }
 
 .author-info p {
@@ -448,15 +451,17 @@
 .stars {
   display: flex;
   gap: 0.25rem;
-  margin-bottom: 1rem;
   justify-content: center;
+  margin-bottom: 1rem;
 }
 
 .star {
   color: #fbbf24;
 }
 
-/* Newsletter Section */
+/*-----------------------------------
+  NEWSLETTER
+-----------------------------------*/
 .newsletter {
   background: linear-gradient(135deg, var(--primary-color), #32cd32);
   color: white;
@@ -470,10 +475,9 @@
 
 .newsletter-form {
   max-width: 500px;
-  margin: 0 auto;
+  margin: 2rem auto 0;
   display: flex;
   gap: 1rem;
-  margin-top: 2rem;
 }
 
 .newsletter-input {
@@ -514,7 +518,9 @@
   text-align: left;
 }
 
-/* Footer */
+/*-----------------------------------
+  FOOTER
+-----------------------------------*/
 .footer {
   background: var(--footer-bg);
   color: white;
@@ -536,8 +542,8 @@
 
 .footer-section h3 {
   color: var(--primary-color);
-  margin-bottom: 1rem;
   font-size: var(--font-lg);
+  margin-bottom: 1rem;
 }
 
 .footer-section ul {
@@ -562,7 +568,6 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  margin-bottom: 0.5rem;
   color: var(--secondary-text);
 }
 
@@ -574,13 +579,12 @@
   font-size: var(--font-sm);
 }
 
-/* Mobile Styles */
+/*-----------------------------------
+  MOBILE RESPONSIVE
+-----------------------------------*/
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;
-  }
-  .hero-content div {
-    justify-content: center;
   }
   .nav-menu {
     display: none;
@@ -601,7 +605,7 @@
   }
 
   .section-title {
-    font-size: var(--font-2xl);
+    font-size: 20px;
   }
 
   .newsletter-form {
@@ -618,32 +622,23 @@
   .testimonials-grid {
     grid-template-columns: 1fr;
   }
+  .hero-content div {
+    justify-content: center;
+  }
+  .product-title {
+    font-size: 18px;
+  }
 }
 
 @media (max-width: 480px) {
-  .nav-container {
-    padding: 0 1rem;
-  }
-
-  .hero {
-    padding: 6rem 0.5rem 2rem;
-  }
-
   .hero-content h1 {
     font-size: var(--font-2xl);
   }
-
-  .section {
-    padding: 2rem 1.6rem;
-  }
-
-  .btn {
-    padding: 0.8rem 1.5rem;
-    font-size: 0.9rem;
-  }
 }
 
-/* Animations */
+/*-----------------------------------
+  GENERAL ANIMATIONS
+-----------------------------------*/
 .fade-in {
   opacity: 0;
   transform: translateY(30px);
