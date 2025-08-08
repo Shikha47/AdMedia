@@ -70,7 +70,7 @@ html {
   }
 }
 body {
-  font-family: var(--font-family-base);
+  font-family: var(--font-family-base) !important;
   line-height: 1.6;
   color: var(--text);
 }
