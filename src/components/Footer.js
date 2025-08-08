@@ -57,18 +57,18 @@ const Footer = () => {
             </div>
             <div className="contact-info">
               <Phone size={16} />
-              <span>+1 (555) 123-4567</span>
+              <span>+91 7836790233</span>
             </div>
             <div className="contact-info">
               <MapPin size={16} />
-              <span>123 Green Street, Eco City</span>
+              <span>abc Green Street, Eco City</span>
             </div>
           </div>
         </div>
 
         <div className="footer-bottom">
           <p>
-            &copy; 2024 AdMedia. All rights reserved. | Privacy Policy | Terms
+            &copy; 2025 AdMedia. All rights reserved. | Privacy Policy | Terms
             of Service
           </p>
         </div>

@@ -1,5 +1,8 @@
 import React from "react";
-
+import bambooKitchen from "../images/BambooKitchen.png";
+import organicCotton from "../images/organicCotton.webp";
+import solarPowerBank from "../images/solarPowerBank.jpg";
+import waterBottle from "../images/waterBottle.webp";
 const Features = () => {
   return (
     <section id="products" className="section">
@@ -15,29 +18,29 @@ const Features = () => {
               name: "Bamboo Kitchen Set",
               description:
                 "Complete eco-friendly kitchen essentials made from sustainable bamboo",
-              icon: "🎋",
+              icon: bambooKitchen,
             },
             {
               name: "Organic Cotton Clothing",
               description:
                 "Soft, comfortable apparel made from 100% organic cotton",
-              icon: "👕",
+              icon: organicCotton,
             },
             {
               name: "Solar Power Banks",
               description: "Renewable energy solutions for your mobile devices",
-              icon: "🔋",
+              icon: solarPowerBank,
             },
             {
               name: "Reusable Water Bottles",
               description:
                 "Premium stainless steel bottles to reduce plastic waste",
-              icon: "💧",
+              icon: waterBottle,
             },
           ].map((product, index) => (
             <div key={index} className="product-card">
               <div className="product-image">
-                <span style={{ fontSize: "3rem" }}>{product.icon}</span>
+                <img src={product.icon} />
               </div>
               <div className="product-info">
                 <h3 className="product-title">{product.name}</h3>
